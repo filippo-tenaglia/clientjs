@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Test MongoDB</title>
+</head>
+<script src="javascripts\vendor\ua-parser.js"></script>
+<script src="javascripts\vendor\deployJava.js"></script>
+<script src="javascripts\vendor\murmurhash3.js"></script>
+<script src="javascripts\vendor\swfobject.js"></script>
+<script src="javascripts\vendor\fontdetect.js"></script>
+<script src="javascripts\client.js"></script>	
+<script>
+function getClientData(){
+	var client = new ClientJS(); // Create A New Client Object
+	
+var browser=client.getBrowser()+' '+client.getBrowserVersion()+' engine= '+client.getEngine() +' '+client.getEngineVersion();
+var os=client.getOS()+' '+client.getOSVersion();
+var device=client.getDevice()+' '+client.getDeviceType()+' '+client.getDeviceVendor();
+var cpu=client.getCPU();
+var screenPrint=  client.getScreenPrint();
+var currentResolution=  client.getCurrentResolution();
+var deviceDPI='x:'+client.getDeviceXDPI() +' y:'+client.getDeviceYDPI();
+var mimetype=  client.getMimeTypes();
+var timeZone=  client.getTimeZone();
+var language=  client.getLanguage();
+var camvas=  client.getCanvasPrint();
+
+  document.getElementById("browser").value=browser; 
+document.getElementById("os").value=os;
+document.getElementById("device").value=device;
+document.getElementById("cpu").value=cpu;
+document.getElementById("screenPrint").value=screenPrint;
+document.getElementById("currentResolution").value=currentResolution;
+document.getElementById("deviceDPI").value=deviceDPI;
+document.getElementById("mimetype").value=mimetype;
+document.getElementById("timeZone").value=timeZone;
+document.getElementById("language").value=language;
+  }
+  </script>
+  <body on load="javascript:getClientData()" >
+  <div>
+  <a href="http://localhost:3000/users">See saved data</a>
+  </div>
+  <div>
+<form name="form" method="post" action="http://localhost:3000/user" >
+Name:<input type="text" name="name"  />
+<br/>
+Surname:<input type="text" name="surname"  />
+<br/>
+Ip:<input type="text" name="ip"  />
+<br/>
+Browser:<input type="text" name="browser" id="browser" />
+<br/>
+os:<input type="text" name="os" id="os" />
+<br/>
+device:<input type="text" name="device" id="device" />
+<br/>
+cpu<input type="text" name="cpu" id="cpu" />
+<br/>
+screenPrint:<input type="text" name="screenPrint" id="screenPrint" />
+<br/>
+currentResolution:<input type="text" name="currentResolution" id="currentResolution" />
+<br/>
+deviceDPI:<input type="text" name="deviceDPI" id="deviceDPI" />
+<br/>
+mimetype<input type="text" name="mimetype" id="mimetype" />
+<br/>
+timeZone:<input type="text" name="timeZone" id="timeZone" />
+<br/>
+language<input type="text" name="language" id="language" />
+<br/>
+<input type="submit" value="Save" />
+<br/>
+</form>
+</div>
+</body>
+</html>
